@@ -8,6 +8,12 @@ const sequelize = new Sequelize({
   password: process.env.DATABASE_PASSWORD,
   database: process.env.DATABASE_NAME,
   logging: false,
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
+  },
 });
 
 module.exports = {
